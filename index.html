@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deltarune: Town</title>
+    <style>
+        @font-face {
+            font-family: 'UT';
+            src: url('Resources/Ut.ttf') format('truetype');
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'UT', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        h1 {
+            font-size: clamp(2em, 5vw, 3em);
+            margin-bottom: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            font-size: clamp(1em, 2vw, 1.2em);
+            cursor: pointer;
+            transition: all 0.1s linear;
+            font-family: 'UT', sans-serif;
+            width: 150px;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #222222;
+        }
+        
+        #play-btn:hover, #play-btn:active {
+            color: #ffff00;
+            border-color: #ffff00;
+            transform: translateY(-2px);
+        }
+        
+        .content-block {
+            background-color: #000000;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px solid #ffffff;
+            position: relative;
+        }
+        
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 1px solid #333;
+            pointer-events: none;
+        }
+        
+        .social-links {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+        
+        /* Адаптация для мобильных */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            .buttons {
+                gap: 10px;
+                margin: 20px 0;
+            }
+            
+            .btn {
+                width: 120px;
+                padding: 10px 15px;
+            }
+            
+            .content-block {
+                padding: 20px;
+                margin: 20px 0;
+            }
+        }
+        
+        /* Анимации */
+        @keyframes btn-press {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn:active {
+            animation: btn-press 0.15s linear;
+        }
+        
+        /* Специфичные стили для разных кнопок */
+        #play-btn:active {
+            color: #ffff00;
+            border-color: #ffff00;
+        }
+        
+        .telegram-btn:hover {
+            background-color: #0088cc;
+            border-color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DELTARUNE: TOWN</h1>
+            <p>Мультиплеерная Sandbox игра по вселенной Deltarune</p>
+        </header>
+        
+        <div class="buttons">
+            <a href="#" class="btn" id="play-btn">Играть</a>
+            <a href="#" class="btn">Информация</a>
+            <a href="#" class="btn">Правила</a>
+        </div>
+        
+        <div class="content-block">
+            <h2>Deltarune: Town</h2>
+            <p>Это мультиплеерная Sandbox игра, в которой вы можете делать все что захотите. За вами стоит выбор - играть по ролевой игре или делать что вам хочется.</p>
+            <p>Общайтесь и играйте за различных персонажей игры Deltarune, взаимодействуйте с другими игроками, создавайте команды и веселитесь.</p>
+            <p>Исследуйте мир, наполненный отсылками к оригинальной игре, создавайте свои истории и становитесь частью этого удивительного сообщества.</p>
+        </div>
+        
+        <div class="content-block">
+            <h2>Особенности игры</h2>
+            <ul>
+                <li>Свободный геймплей в стиле sandbox</li>
+                <li>Мультиплеер с другими игроками</li>
+                <li>Возможность ролевой игры или свободного режима</li>
+                <li>Разнообразие персонажей из Deltarune</li>
+                <li>Взаимодействие с игровым миром и другими игроками</li>
+                <li>Создание команд и совместные приключения</li>
+            </ul>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://t.me/DeltaruneTown" class="btn telegram-btn" target="_blank">Наш Telegram</a>
+        </div>
+        
+        <footer>
+            <p>© 2025 Deltarune: Town. Все права защищены.</p>
+            <p>Игра не является официальным продуктом по Deltarune.</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.getElementById('play-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Игра пока недоступна. Мы работаем над её созданием!');
+        });
+        
+        // Добавляем класс при загрузке для плавного появления
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
