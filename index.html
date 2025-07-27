@@ -5,10 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Deltarune Town " />
+    <meta name="apple-mobile-web-app-title" content="Deltarune Town" />
     <link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <!-- Primary Meta Tags -->
     <title>Deltarune: Town</title>
     <meta name="title" content="Deltarune: Town" />
@@ -28,7 +30,6 @@
     <meta property="twitter:description" content="Играй с друзьями в Deltarune!" />
     <meta property="twitter:image" content="https://deltatown.fun/image.png" />
 
-    <!-- Meta Tags Generated with https://metatags.io -->
     <style>
         @font-face {
             font-family: 'UT';
@@ -93,7 +94,7 @@
             background-color: #222222;
         }
         
-        #play-btn:hover, #play-btn:active {
+        #download-btn:hover, #download-btn:active {
             color: #ffff00;
             border-color: #ffff00;
             transform: translateY(-2px);
@@ -130,6 +131,74 @@
             margin-top: 50px;
         }
         
+        /* Стили для панели скачивания */
+        .download-panel {
+            display: none;
+            background-color: #000000;
+            padding: 30px;
+            margin: 20px auto;
+            border: 2px solid #ffffff;
+            max-width: 600px;
+            position: relative;
+            text-align: center;
+        }
+        
+        .download-panel::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 1px solid #333;
+            pointer-events: none;
+        }
+        
+        .platform-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .platform-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #111111;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 200px;
+            position: relative;
+        }
+        
+        .platform-btn:hover {
+            background-color: #222222;
+            transform: translateY(-5px);
+            border-color: #ffff00;
+            color: #ffff00;
+        }
+        
+        .platform-btn img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+        
+        .loading-message {
+            display: none;
+            color: #ffff00;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
         /* Адаптация для мобильных */
         @media (max-width: 768px) {
             .container {
@@ -154,6 +223,20 @@
                 padding: 20px;
                 margin: 20px 0;
             }
+            
+            .platform-buttons {
+                gap: 15px;
+            }
+            
+            .platform-btn {
+                width: 150px;
+                padding: 15px;
+            }
+            
+            .platform-btn img {
+                width: 60px;
+                height: 60px;
+            }
         }
         
         /* Анимации */
@@ -168,7 +251,7 @@
         }
         
         /* Специфичные стили для разных кнопок */
-        #play-btn:active {
+        #download-btn:active {
             color: #ffff00;
             border-color: #ffff00;
         }
@@ -179,7 +262,7 @@
         }
     </style>
 </head>
-<body>
+<body style="opacity: 1;">
     <div class="container">
         <header>
             <h1>DELTARUNE: TOWN</h1>
@@ -187,16 +270,38 @@
         </header>
         
         <div class="buttons">
-            <a href="#" class="btn" id="play-btn">Играть</a>
-            <a href="#" class="btn">Информация</a>
-            <a href="#" class="btn">Правила</a>
+            <a href="#" class="btn" id="download-btn">Скачать</a>
+            <a href="rules.html" class="btn">Правила</a>
+        </div>
+        
+        <!-- Панель скачивания -->
+        <div class="download-panel" id="download-panel">
+            <h2>Выберите платформу для скачивания</h2>
+            <div class="platform-buttons">
+                <a href="Deltarune Town.apk" class="platform-btn" download id="android-download">
+                    <img src="android.png" alt="Android">
+                    Загрузить на Android
+                    <div class="loading-message" id="android-loading">Проверка доступности файла...</div>
+                </a>
+                <a href="Deltarune Town.zip" class="platform-btn" download id="windows-download">
+                    <img src="windows.png" alt="Windows">
+                    Загрузить на Windows
+                    <div class="loading-message" id="windows-loading">Проверка доступности файла...</div>
+                </a>
+            </div>
         </div>
         
         <div class="content-block">
             <h2>Deltarune: Town</h2>
-            <p>Это мультиплеерная Sandbox игра, в которой вы можете делать все что захотите. За вами стоит выбор - играть по ролевой игре или делать что вам хочется.</p>
-            <p>Общайтесь и играйте за различных персонажей игры Deltarune, взаимодействуйте с другими игроками, создавайте команды и веселитесь.</p>
-            <p>Исследуйте мир, наполненный отсылками к оригинальной игре, создавайте свои истории и становитесь частью этого удивительного сообщества.</p>
+            <p>Это мультиплеерная Sandbox игра, в которой вы можете 
+делать все что захотите. За вами стоит выбор - играть по ролевой игре 
+или делать что вам хочется.</p>
+            <p>Общайтесь и играйте за различных персонажей игры 
+Deltarune, взаимодействуйте с другими игроками, создавайте команды и 
+веселитесь.</p>
+            <p>Исследуйте мир, наполненный отсылками к оригинальной 
+игре, создавайте свои истории и становитесь частью этого удивительного 
+сообщества.</p>
         </div>
         
         <div class="content-block">
@@ -222,14 +327,61 @@
     </div>
     
     <script>
-        document.getElementById('play-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Игра пока недоступна. Мы работаем над её созданием!');
+        // Функция для проверки доступности файла
+        async function checkFileAvailability(url, loadingElement) {
+            try {
+                loadingElement.style.display = 'block';
+                const response = await fetch(url, { method: 'HEAD' });
+                
+                if (!response.ok) {
+                    window.location.href = '404.html';
+                    return false;
+                }
+                return true;
+            } catch (error) {
+                window.location.href = '404.html';
+                return false;
+            } finally {
+                loadingElement.style.display = 'none';
+            }
+        }
+
+        // Обработчики для кнопок скачивания
+        document.getElementById('android-download').addEventListener('click', async function(e) {
+            const fileAvailable = await checkFileAvailability(this.href, document.getElementById('android-loading'));
+            if (!fileAvailable) {
+                e.preventDefault();
+            }
         });
-        
-        // Добавляем класс при загрузке для плавного появления
+
+        document.getElementById('windows-download').addEventListener('click', async function(e) {
+            const fileAvailable = await checkFileAvailability(this.href, document.getElementById('windows-loading'));
+            if (!fileAvailable) {
+                e.preventDefault();
+            }
+        });
+
+        // Обработчик для кнопки "Скачать"
+        document.getElementById('download-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const panel = document.getElementById('download-panel');
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+                panel.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Плавное появление страницы
         document.addEventListener('DOMContentLoaded', function() {
             document.body.style.opacity = '1';
+            
+            // Проверка при загрузке страницы, если пользователь попал с прямой ссылки на файл
+            if(window.location.href.includes('Deltarune Town.apk') || window.location.href.includes('Deltarune Town.zip')) {
+                window.location.href = '404.html';
+            }
         });
     </script>
 </body>
