@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Deltarune Town" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Файл не найден | Deltarune: Town</title>
+    <meta name="title" content="Файл не найден | Deltarune: Town" />
+    <meta name="description" content="Файл для скачивания временно недоступен" />
+
+    <style>
+        @font-face {
+            font-family: 'UT';
+            src: url('Ut.ttf') format('truetype');
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'UT', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: clamp(2em, 5vw, 3em);
+            margin-bottom: 20px;
+            color: #ffff00;
+        }
+        
+        .error-code {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #ffff00;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            font-size: clamp(1em, 2vw, 1.2em);
+            cursor: pointer;
+            transition: all 0.1s linear;
+            font-family: 'UT', sans-serif;
+            width: 200px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #222222;
+            color: #ffff00;
+            border-color: #ffff00;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            margin-top: auto;
+        }
+        
+        /* Анимации */
+        @keyframes btn-press {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn:active {
+            animation: btn-press 0.15s linear;
+        }
+
+        /* Анимация для текста ошибки */
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body style="opacity: 1;">
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>ФАЙЛ НЕ НАЙДЕН</h1>
+        <div class="error-message">
+            <p class="pulse">Игра ещё не доступна для скачивания!</p>
+            <p>Пожалуйста, дождитесь официального выхода игры.</p>
+            <p>Следите за обновлениями в нашем Telegram-канале.</p>
+        </div>
+        <a href="index.html" class="btn">Вернуться на главную</a>
+    </div>
+    
+    <footer>
+        <p>© 2025 Deltarune: Town. Все права защищены.</p>
+        <p>Игра не является официальным продуктом по Deltarune.</p>
+    </footer>
+
+    <script>
+        // Добавляем класс при загрузке для плавного появления
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Перенаправление с неверных ссылок скачивания
+        if(window.location.href.includes('Deltarune Town.apk') || window.location.href.includes('Deltarune Town.zip')) {
+            window.location.href = '404.html';
+        }
+    </script>
+</body>
+</html>

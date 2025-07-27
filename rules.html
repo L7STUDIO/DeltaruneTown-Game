@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Deltarune Town" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Deltarune: Town - Правила</title>
+    <meta name="title" content="Deltarune: Town - Правила" />
+    <meta name="description" content="Правила игры Deltarune: Town" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deltatown.fun/rules.html" />
+    <meta property="og:title" content="Deltarune: Town - Правила" />
+    <meta property="og:description" content="Правила игры Deltarune: Town" />
+    <meta property="og:image" content="https://deltatown.fun/image.png" />
+
+    <!-- X / Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://deltatown.fun/rules.html" />
+    <meta property="twitter:title" content="Deltarune: Town - Правила" />
+    <meta property="twitter:description" content="Правила игры Deltarune: Town" />
+    <meta property="twitter:image" content="https://deltatown.fun/image.png" />
+
+    <style>
+        @font-face {
+            font-family: 'UT';
+            src: url('Ut.ttf') format('truetype');
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'UT', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #333;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: clamp(2em, 5vw, 3em);
+            margin-bottom: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            font-size: clamp(1em, 2vw, 1.2em);
+            cursor: pointer;
+            transition: all 0.1s linear;
+            font-family: 'UT', sans-serif;
+            width: 150px;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #222222;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 8px 16px;
+            font-size: 1em;
+            width: auto;
+        }
+        
+        .back-btn:hover {
+            color: #ffff00;
+            border-color: #ffff00;
+        }
+        
+        .content-block {
+            background-color: #000000;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px solid #ffffff;
+            position: relative;
+        }
+        
+        .content-block::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 1px solid #333;
+            pointer-events: none;
+        }
+        
+        .rules-list {
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+        
+        .rules-list li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+        
+        /* Адаптация для мобильных */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            .buttons {
+                gap: 10px;
+                margin: 20px 0;
+            }
+            
+            .btn {
+                width: 120px;
+                padding: 10px 15px;
+            }
+            
+            .back-btn {
+                position: static;
+                transform: none;
+                margin-bottom: 15px;
+            }
+            
+            .content-block {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .rules-list li {
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Анимации */
+        @keyframes btn-press {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn:active {
+            animation: btn-press 0.15s linear;
+        }
+    </style>
+</head>
+<body style="opacity: 1;">
+    <div class="container">
+        <header>
+            <a href="index.html" class="btn back-btn">← Назад</a>
+            <h1>ПРАВИЛА DELTARUNE: TOWN</h1>
+            <p>Основные правила поведения в игре</p>
+        </header>
+        
+        <div class="content-block">
+            <h2>Общие правила</h2>
+            <ul class="rules-list">
+                <li>Уважайте других игроков. Оскорбления, травля и дискриминация запрещены.</li>
+                <li>Запрещено использование читов, эксплойтов и любых программ, дающих преимущество.</li>
+                <li>Не распространяйте спам, рекламу и NSFW-контент.</li>
+                <li>Никакого гриферства - не мешайте другим игрокам получать удовольствие от игры.</li>
+                <li>Администрация оставляет за собой право наказывать за любые действия, которые портят игровой опыт.</li>
+            </ul>
+        </div>
+        
+        <div class="content-block">
+            <h2>Ролевые правила</h2>
+            <ul class="rules-list">
+                <li>Соблюдайте лор вселенной Deltarune при ролевой игре.</li>
+                <li>Не используйте "Метагейминг" - информацию, которую ваш персонаж не может знать.</li>
+                <li>Избегайте "Пауэргейминга" - не делайте своего персонажа всемогущим.</li>
+                <li>Уважайте чужой ролевой опыт - не заставляйте других участвовать в ваших сценариях без согласия.</li>
+                <li>Администрация может создавать специальные ролевые события - следите за анонсами.</li>
+            </ul>
+        </div>
+        
+        <div class="content-block">
+            <h2>Технические правила</h2>
+            <ul class="rules-list">
+                <li>Использование модов разрешено только косметических, не влияющих на геймплей.</li>
+                <li>Баги и ошибки нужно сообщать администрации, а не использовать в своих целях.</li>
+                <li>Не создавайте множество аккаунтов для обхода ограничений.</li>
+                <li>Попытки взлома сервера или других игроков приведут к перманентному бану.</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>© 2025 Deltarune: Town. Все права защищены.</p>
+            <p>Игра не является официальным продуктом по Deltarune.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Добавляем класс при загрузке для плавного появления
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
