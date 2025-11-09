@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Deltarune Town" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Приглашение в Deltarune: Town</title>
+    <meta name="title" content="Приглашение в Deltarune: Town" />
+    <meta name="description" content="Присоединяйтесь к игре Deltarune: Town!" />
+
+    <style>
+        @font-face {
+            font-family: 'UT';
+            src: url('Ut.ttf') format('truetype');
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'UT', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(40, 40, 40, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(40, 40, 40, 0.2) 0%, transparent 20%);
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            color: #ffff00;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+        
+        .invite-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px 30px;
+            margin: 20px 0;
+            border: 2px solid #ffffff;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .invite-card::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border: 1px solid #333;
+            pointer-events: none;
+        }
+        
+        .invite-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffff00;
+        }
+        
+        .invite-code {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #ffff00;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+            letter-spacing: 3px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: 1px solid #ffff00;
+        }
+        
+        .game-link {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            color: #cccccc;
+            word-break: break-all;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'UT', sans-serif;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin: 10px 0;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #111111;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+        
+        .primary-btn {
+            color: #ffff00;
+            border-color: #ffff00;
+            animation: pulse 2s infinite;
+        }
+        
+        .primary-btn:hover {
+            background-color: #222200;
+        }
+        
+        .platform-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background-color: #111111;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .platform-btn:hover::before {
+            left: 100%;
+        }
+        
+        .platform-btn:hover {
+            background-color: #222222;
+            transform: translateY(-5px);
+            border-color: #ffff00;
+            color: #ffff00;
+        }
+        
+        .platform-btn img {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            object-fit: contain;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            position: relative;
+            width: 100%;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #ffff00;
+        }
+        
+        /* Анимации */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Адаптация для мобильных */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .invite-card {
+                padding: 30px 20px;
+            }
+            
+            .invite-title {
+                font-size: 1.5rem;
+            }
+            
+            .invite-code {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1.1em;
+            }
+            
+            .game-link {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Дополнительные улучшения */
+        .loading {
+            display: none;
+            color: #ffff00;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .success-message {
+            display: none;
+            color: #00ff00;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        
+        .link-container {
+            margin: 15px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .copy-btn {
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #333;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: 'UT', sans-serif;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #222222;
+            border-color: #ffff00;
+            color: #ffff00;
+        }
+        
+        .copy-success {
+            color: #00ff00;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .instructions {
+            background-color: rgba(255, 255, 0, 0.1);
+            border: 1px solid #ffff00;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body style="opacity: 1;">
+    <div class="container">
+        <div class="logo floating">DELTARUNE</div>
+        <div class="subtitle">TOWN</div>
+        
+        <div class="invite-card">
+            <div class="invite-title">Получите награду в<br>Deltarune: Town!</div>
+            <div>Ваш пригласительный код:</div>
+            <div class="invite-code" id="invite-code">HDYMI</div>
+            <div>Используйте этот код при входе в игру</div>
+            
+            <div class="link-container">
+                <div>Ссылка для подключения:</div>
+                <div class="game-link" id="game-link">deltarune://join?code=XXXXX</div>
+                <button class="copy-btn" id="copy-btn">Копировать ссылку</button>
+                <div class="copy-success" id="copy-success">Ссылка скопирована!</div>
+            </div>
+            
+            <div class="instructions">
+                <strong>Как подключиться:</strong><br>
+                1. Нажмите "Присоединиться к игре"<br>
+                2. Разрешите открытие приложения<br>
+                3. Игра запустится автоматически
+            </div>
+        </div>
+        
+        <a href="#" class="btn primary-btn" id="join-btn">Присоединиться к игре</a>
+        <div class="loading" id="join-loading">Запуск игры...</div>
+        <div class="success-message" id="join-success">Успешно! Запускаем игру...</div>
+        
+        <div class="platform-buttons">
+            <a href="Deltarune Town.apk" class="platform-btn" download id="android-download">
+                <img src="Android.png" alt="Android">
+                Скачать для Android
+                <div class="loading" id="android-loading">Проверка доступности файла...</div>
+            </a>
+            <a href="Deltarune Town.zip" class="platform-btn" download id="windows-download">
+                <img src="Windows.png" alt="Windows">
+                Скачать для Windows
+                <div class="loading" id="windows-loading">Проверка доступности файла...</div>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Deltarune: Town. Все права защищены.</p>
+        <div class="footer-links">
+            <a href="rules.html" class="footer-link">Правила использования</a>
+            <a href="#" class="footer-link">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для генерации случайного кода
+        function generateInviteCode(length = 5) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        // Функция для получения кода из URL
+        function getInviteCodeFromURL() {
+            const path = window.location.pathname;
+            const match = path.match(/invite-([A-Z0-9]{5})/);
+            if (match && match[1]) {
+                return match[1];
+            }
+            return generateInviteCode();
+        }
+
+        // Функция для создания игровой ссылки с кастомной схемой
+        function createGameLink(inviteCode) {
+            return `deltarune://join?code=${inviteCode}&server=main`;
+        }
+
+        // Функция для запуска игры через кастомную схему URL
+        function launchUnityGame(gameLink) {
+            // Пытаемся открыть через кастомную схему
+            window.location.href = gameLink;
+            
+            // Фолбэк если приложение не установлено
+            setTimeout(function() {
+                if (!document.webkitHidden && !document.hidden) {
+                    // Приложение не открылось, показываем инструкцию
+                    alert('Приложение не найдено! Убедитесь, что Deltarune: Town установлена на вашем устройстве.');
+                    
+                    // Предлагаем скачать игру
+                    const shouldDownload = confirm('Хотите скачать игру?');
+                    if (shouldDownload) {
+                        // Определяем платформу и предлагаем соответствующую версию
+                        if (/Android/i.test(navigator.userAgent)) {
+                            window.location.href = 'Deltarune Town.apk';
+                        } else {
+                            window.location.href = 'Deltarune Town.zip';
+                        }
+                    }
+                }
+            }, 2000);
+        }
+
+        // Функция для проверки доступности файла
+        async function checkFileAvailability(url, loadingElement) {
+            try {
+                loadingElement.style.display = 'block';
+                const response = await fetch(url, { method: 'HEAD' });
+                
+                if (!response.ok) {
+                    window.location.href = '404.html';
+                    return false;
+                }
+                return true;
+            } catch (error) {
+                window.location.href = '404.html';
+                return false;
+            } finally {
+                loadingElement.style.display = 'none';
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '1';
+            
+            // Устанавливаем пригласительный код
+            const inviteCode = getInviteCodeFromURL();
+            document.getElementById('invite-code').textContent = inviteCode;
+            
+            // Создаем и отображаем игровую ссылку
+            const gameLink = createGameLink(inviteCode);
+            document.getElementById('game-link').textContent = gameLink;
+            
+            // Сохраняем код в localStorage для использования в игре
+            localStorage.setItem('deltarune_invite_code', inviteCode);
+            localStorage.setItem('deltarune_game_link', gameLink);
+            
+            // Обработчик для кнопки копирования ссылки
+            document.getElementById('copy-btn').addEventListener('click', function() {
+                navigator.clipboard.writeText(gameLink).then(() => {
+                    const copySuccess = document.getElementById('copy-success');
+                    copySuccess.style.display = 'block';
+                    setTimeout(() => {
+                        copySuccess.style.display = 'none';
+                    }, 2000);
+                });
+            });
+            
+            // Обработчик для кнопки "Присоединиться к игре"
+            document.getElementById('join-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const loadingElement = document.getElementById('join-loading');
+                const successElement = document.getElementById('join-success');
+                
+                // Показываем загрузку
+                loadingElement.style.display = 'block';
+                
+                // Запускаем игру через 1 секунду
+                setTimeout(() => {
+                    loadingElement.style.display = 'none';
+                    successElement.style.display = 'block';
+                    
+                    // Запускаем игру
+                    launchUnityGame(gameLink);
+                }, 1000);
+            });
+            
+            // Обработчики для кнопок скачивания
+            document.getElementById('android-download').addEventListener('click', async function(e) {
+                const fileAvailable = await checkFileAvailability(this.href, document.getElementById('android-loading'));
+                if (!fileAvailable) {
+                    e.preventDefault();
+                } else {
+                    // Сохраняем код для использования в скачанной версии
+                    localStorage.setItem('deltarune_invite_code', inviteCode);
+                }
+            });
+
+            document.getElementById('windows-download').addEventListener('click', async function(e) {
+                const fileAvailable = await checkFileAvailability(this.href, document.getElementById('windows-loading'));
+                if (!fileAvailable) {
+                    e.preventDefault();
+                } else {
+                    // Сохраняем код для использования в скачанной версии
+                    localStorage.setItem('deltarune_invite_code', inviteCode);
+                }
+            });
+            
+            // Если пользователь попал с прямой ссылки на файл - перенаправляем на 404
+            if(window.location.href.includes('Deltarune Town.apk') || window.location.href.includes('Deltarune Town.zip')) {
+                window.location.href = '404.html';
+            }
+        });
+    </script>
+</body>
+</html>
